@@ -1,9 +1,11 @@
 # AeroSense — Intelligent Air Quality & Climate Analyzer
-PM 2.5 AQI(trained model) 
 
 
 
 **Short goal:** Collect air/gas sensor data or API feeds, train a lightweight regression model to predict AQI from PM2.5, and visualize results on a clean dashboard. This repo contains minimal main files so you can run it quickly.
+
+PM2.5AQI (Trained model)
+
 
 ---
 
