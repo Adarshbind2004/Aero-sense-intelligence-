@@ -1,63 +1,71 @@
-# Advanced Regression Analysis Project
+# AeroSense — Intelligent Air Quality & Climate Analyzer (Beginner → Research-ready)
 
-## Project Name: Predictive Data Insights
+PM 2.5 AQI(trained model) 
 
-### Short Description:
-A research-level beginner project demonstrating regression analysis on sample CSV data using multiple programming languages. The project visualizes trends and predictions with clean, easy-to-understand graphs.
 
----
 
-## Repository Structure:
-Predictive-Data-Insights/
-│
-├── data/
-│   └── sample_data.csv         # Sample dataset for regression analysis
-│
-├── notebooks/
-│   ├── python_analysis.ipynb   # Python Jupyter notebook for data analysis
-│   └── visualization.ipynb     # Graph plotting and interpretation
-│
-├── src/
-│   ├── python_regression.py    # Python script for regression modeling
-│   ├── js_regression.js        # Node.js script for regression calculations
-│   └── java_regression.java    # Java script for regression demo
-│
-├── graphs/
-│   └── regression_plots.png    # Example output of graphs
-│
-├── README.md                   # Project overview and instructions
-└── requirements.txt            # Python dependencies
+**Short goal:** Collect air/gas sensor data or API feeds, train a lightweight regression model to predict AQI from PM2.5, and visualize results on a clean dashboard. This repo contains minimal main files so you can run it quickly.
 
 ---
 
-## Languages Used:
-- Python: Data analysis, regression, visualization
-- JavaScript (Node.js): Regression calculations, lightweight backend
-- Java: Alternative regression demo for beginners
-- HTML/CSS: Optional frontend for data display
+## What is included (main files)
+- `frontend/` — lightweight D3.js dashboard (index.html, style.css, dashboard.js)
+- `backend/` — minimal Node.js server (`server.js`) serving sample CSV and prediction endpoint
+- `ai_model/` — sample CSV (`sample_data.csv`), trainer script (`aqi_predict.py`), saved `model_params.json`, and `prediction_plot.png`
+- `mobile_app/` — placeholder `AirAlert.java` showing how mobile alerting would call the model
 
 ---
 
-## How It Works:
-1. Load CSV Data: Python reads `sample_data.csv`.
-2. Data Cleaning: Remove missing values, normalize features.
-3. Regression Modeling:
-   - Python uses `sklearn` LinearRegression.
-   - JS and Java scripts replicate the same regression formula.
-4. Visualization:
-   - Scatter plots and line plots show prediction vs actual.
-   - Example graph saved as `regression_plots.png`.
-5. Prediction: Enter new values to get predicted results from any language script.
+## Advanced Analysis (short)
+- **Hypothesis:** PM2.5 is the strongest single predictor for AQI in local urban scenarios.
+- **Model:** Ordinary Least Squares (single-variable linear regression) trained on the provided sample CSV (~120 hourly points). This keeps the pipeline transparent and reproducible for beginners moving toward research.
+- **Metrics:** Visual inspection of scatter + fit; for production add RMSE, MAE, and cross-validation.
+
+### Key insight
+> A simple linear regressor explains the bulk of AQI variability when PM2.5 dominates. Add meteorological features (temp, humidity, wind) for better accuracy.
 
 ---
 
-## Example Graphs:
-- Scatter Plot: Shows actual vs predicted points
-- Line Plot: Trend line from regression
-*(Graphs are stored in `graphs/` folder as PNG files for easy reference)*
+## How it works (very short)
+1. `ai_model/aqi_predict.py` reads `sample_data.csv`, computes OLS parameters and writes `model_params.json` + `prediction_plot.png`.
+2. `backend/server.js` serves `sample.csv` and exposes `/predict?pm25=VALUE` returning model output.
+3. `frontend/index.html` loads CSV, draws D3 graph and calls `/predict` to show live predictions.
+4. `mobile_app/AirAlert.java` is a minimal concept for Android alert logic.
 
 ---
 
-## Setup Instructions:
+## Quick start (Linux / macOS)
+1. Open a terminal.
+2. Run the AI trainer:
+   ```bash
+   cd ai_model
+   python3 aqi_predict.py
+   ```
+3. Start backend:
+   ```bash
+   cd ../backend
+   node server.js
+   ```
+4. Open frontend:
+   - Open `frontend/index.html` in a browser (or serve it with a static server). The dashboard will read `ai_model/sample_data.csv` and `ai_model/model_params.json` (if present).
 
-**Python Environment:**
+---
+
+## Visuals & Notes
+- `ai_model/prediction_plot.png` is included — it shows the training scatter and fitted line.
+- Quick sketch (handwritten-style ASCII):
+  ```
+  Sensors/API -> Node.js -> Python(OLS) -> model_params.json
+             \-> Dashboard(D3) <-> Android alerts
+  ```
+
+---
+
+## Next steps (research directions)
+- Replace OLS with regularized models (Ridge, Lasso).
+- Add time-series models (ARIMA/LSTM) for trend forecasting.
+- Calibrate with labeled local sensor networks and compute uncertainty intervals.
+
+---
+
+_This repo is crafted to be a research-friendly, beginner-ready demo with only main files so you can quickly run experiments and extend._  
