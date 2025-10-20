@@ -6,8 +6,7 @@
 
 PM2.5AQI (Trained model)
 
-https://github.com/Adarshbind2004/Aero-sense-intelligence-/blob/d9b88e46d2107fe01b51b3912b913560353a996f/prediction_plot.png
-
+https://github.com/Adarshbind2004/Aero-sense-intelligence-/blob/0a1a309ef7fb7ed5ce441de5db7d925dd74630f4/IMG_3086.png
 
 ---
 
