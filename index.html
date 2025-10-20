@@ -1,0 +1,50 @@
+  <!doctype html>
+  <html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>AeroSense — Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>AeroSense — Air Quality Dashboard</h1>
+      <p class="subtitle">Light, clean & research-ready demo</p>
+    </header>
+    <main>
+      <section id="controls">
+        <label>PM2.5 value (µg/m³): <input id="pmInput" type="number" value="35" step="0.1"></label>
+        <button id="predictBtn">Predict AQI</button>
+        <div id="predResult" class="card">Prediction: —</div>
+      </section>
+
+      <section id="chart" class="card">
+        <h2>PM2.5 vs AQI (sample)</h2>
+        <svg id="plot" width="760" height="300"></svg>
+      </section>
+
+      <section id="model" class="card">
+        <h2>Model Snapshot</h2>
+        <pre id="modelParams">Loading model params…</pre>
+      </section>
+
+      <section id="notes" class="card">
+        <h2>Analysis & Sketch</h2>
+        <pre class="sketch">
+[Sensors/API] -> Node.js -> Python(model)
+               \-> Dashboard (D3)
+Handwritten note:
+"pm25 primary predictor -> OLS linear model
+ Use >100 samples for stable weights"
+        </pre>
+      </section>
+    </main>
+
+    <footer>
+      <small>Repo demo — AeroSense</small>
+    </footer>
+
+    <script src="dashboard.js"></script>
+  </body>
+  </html>
