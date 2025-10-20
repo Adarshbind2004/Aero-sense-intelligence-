@@ -6,8 +6,9 @@
 
 PM2.5AQI (Trained model)
 ![PM2.5AQI (Trained model)
-![Visualization of PM2.5-to-AQI regression model predictions](image.jpeg)
-](imagehttps://github.com/Adarshbind2004/Aero-sense-intelligence-/blob/0a1a309ef7fb7ed5ce441de5db7d925dd74630f4/IMG_3086.png)
+![Visualization of PM2.5-to-AQI regression model predictions](imagehttps://github.com/Adarshbind2004/Aero-sense-intelligence-/blob/0a1a309ef7fb7ed5ce441de5db7d925dd74630f4/IMG_3086.png)
+
+
 
 
 ---
