@@ -1,5 +1,4 @@
-# AeroSense — Intelligent Air Quality & Climate Analyzer (Beginner → Research-ready)
-
+# AeroSense — Intelligent Air Quality & Climate Analyzer
 PM 2.5 AQI(trained model) 
 
 
