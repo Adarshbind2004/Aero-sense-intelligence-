@@ -2,7 +2,7 @@
 
 
 
-**Short goal:** Collect air/gas sensor data or API feeds, train a lightweight regression model to predict AQI from PM2.5, and visualize results on a clean dashboard. This repo contains minimal main files so you can run it quickly.
+**Short goal:** Collect air/gas sensor data or API feeds, train a lightweight regression model to predict AQI from PM2.5, and visualize results on a clean dashboard. 
 
 PM2.5AQI (Trained model)
 ![image alt](https://github.com/Adarshbind2004/Aero-sense-intelligence-/blob/6c877322c6593c6b5f84738296a7b04000b8bdb2/prediction_plot.png)
